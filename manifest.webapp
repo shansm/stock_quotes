@@ -1,0 +1,20 @@
+{ 
+"name": "Stock Quotes",
+"version": "1.1",
+"description": "Super simple app that allows you to get stock quotes and save stocks to your personal portfolio.",
+"launch_path": "/index.html",
+"permissions": {
+  "storage": {
+    "description": "Required for storing and retrieving stocks in portfolio."
+}
+
+  },
+  "developer": {
+    "name": "ShanSM",
+    "url": "http://www.github.com/shansm"
+  },
+  "icons": {
+    "60": "/img/1383981919_shine_14.png",
+    "128": "/img/1383981913_shine_14.png"
+} 
+}

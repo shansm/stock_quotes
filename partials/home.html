@@ -1,0 +1,120 @@
+
+    <!--    
+<div class="row-fluid">
+	<div class="span12">
+          <form role="form" class="form-inline" ng-submit="submit()">
+  <div class="form-group">
+ 
+    <input class="form-control" id="symbol_form" data-items="20" placeholder="Stock Symbol" ng-model="symbol_wanted" bs-typeahead="typeahead" data-min-length="1" autocomplete="off" data-updater="function (item){console.log(item)}" />
+</div>
+
+</div></div>
+
+<div class="row-fluid">
+	<div class="span12">
+
+
+  <div class="form-group">
+   <button type="submit" id="main_submit" class="btn btn-default">Get Quote!</button>
+  </div>
+
+</form>
+</div>-->
+
+<div class="row-fluid">
+	<div class="span12">
+<form class="form-search text-center">
+<div class="input-append">
+<input type="text" class="search-query" id="symbol_form" data-items="20" placeholder="Stock Symbol (i.e. AAPL)" ng-model="symbol_wanted" bs-typeahead="typeahead" data-min-length="1" autocomplete="off" data-updater="function (item){console.log(item)}">
+<!--<button type="submit" class="btn" id="main_submit">Get Quote</button>-->
+</div>
+</form>
+</div>
+</div>
+
+
+
+<div class="row-fluid">
+	<div class="span12">
+<div ng-show="info.data.query.results.quote.Name != null">
+<img ng-show="statusbar" src="img/statusbar.gif" />
+
+
+<table class="table">
+	<tr>
+		<th colspan="4" class="bold">{{ info.data.query.results.quote.Name }} ({{ info.data.query.results.quote.StockExchange }})</th>
+		
+	</tr>
+
+
+<tr>
+<td colspan="4" ng-show="info.data.query.results.quote.Change != null" ng-class="{gainColor: info.data.query.results.quote.Change > 0, lossColor: info.data.query.results.quote.Change < 0}"><span class="whiteColor"><span ng-model="stock_symbol">{{ info.data.query.results.quote.Symbol }}</span>   <span class="bold">{{ info.data.query.results.quote.LastTradePriceOnly }}</span></span> {{ info.data.query.results.quote.Change }}   ({{ info.data.query.results.quote.ChangeinPercent }})</td>
+</tr>
+
+
+<tr>
+<td>Open:</td>
+<td>{{ info.data.query.results.quote.Open }}</td>
+<td>Mkt Cap:</td>
+<td>{{ info.data.query.results.quote.MarketCapitalization }}</td>
+</tr>
+
+<tr>
+<td>High:</td>
+<td>{{ info.data.query.results.quote.DaysHigh }}</td>
+<td>52Wk High:</td>
+<td>{{ info.data.query.results.quote.YearHigh }}</td>
+</tr>
+
+
+<tr>
+<td>Low:</td>
+<td>{{ info.data.query.results.quote.DaysLow }}</td>
+<td>52Wk Low:</td>
+<td>{{ info.data.query.results.quote.YearLow }}</td>
+</tr>
+
+
+<tr>
+<td>Vol:</td>
+<td>{{ info.data.query.results.quote.Volume }}</td>
+<td>Avg Vol:</td>
+<td>{{ info.data.query.results.quote.AverageDailyVolume }}</td>
+</tr>
+
+
+<tr>
+<td>P/E Ratio:</td>
+<td>{{ info.data.query.results.quote.PERatio }}</td>
+<td>EPS:</td>
+<td>{{ info.data.query.results.quote.EarningsShare }}</td>
+</tr>
+
+
+<tr>
+<td>Div:</td>
+<td>{{ info.data.query.results.quote.DividendShare }}</td>
+<!--<td>Beta:</td>
+<td>{{ info.data.query.results.quote.MarketCapitalization }}</td>-->
+</tr>
+
+
+<!--<tr>
+<td ng-show="info.data.query.results.quote.Bid != null">{{ info.data.query.results.quote.Bid || "-" }}</td>
+<td ng-show="info.data.query.results.quote.Ask != null">{{ info.data.query.results.quote.Ask || "-" }}</td>
+</tr>-->
+</table>
+<img ng-show="info.data.query.results.quote.Name" alt="{{info.data.query.results.quote.symbol}} stock chart" src="http://chart.finance.yahoo.com/z?s={{ info.data.query.results.quote.symbol }}&amp;t={{ timeLength.value }}&amp;q=l&amp;l=on&amp;z=s" />
+</div>
+</div>
+</div>
+<div class="row-fluid chartSelector">
+	<div class="span12">
+<div ng-show="info.data.query.results.quote.Name != null">
+Zoom Chart: <select ng-model="timeLength" ng-options="c.name for c in timeFrame"></select>
+</div></div></div>
+<div class="row-fluid">
+	<div class="span12 text-center">
+<button id="main_save" ng-show="info.data.query.results.quote.Change != null" class="btn btn-primary text-center" ng-click="saveToPortfolio(info.data.query.results.quote.Symbol, info.data.query.results.quote.Name)">Save To My Portfolio</button>
+        </div>
+</div>

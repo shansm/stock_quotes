@@ -1,0 +1,72 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+body {
+    padding-bottom: 20px;
+}
+
+.gainColor {
+    color: #31d433;
+}
+
+.lossColor {
+    color: #d90000;
+}
+
+.center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.whiteColor {
+    color: #fff;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.chartPadding {
+    padding-right: 15px;
+}
+
+.table th,.table td {
+    border-top: none;
+}
+
+.deleteIcon {
+    cursor: pointer;
+}
+
+.navbar .brand {
+    padding: 0 20px;
+}
+
+.form-search .input-append .search-query {
+    width: 240px;
+    border-radius: 14px;
+}
+
+.typeahead {
+    text-align: left;
+}
+
+.table-striped tbody > tr:nth-child(2n+1) > td,.table-striped tbody > tr:nth-child(2n+1) > th {
+    background-color: #393939;
+}
+
+.chartSelector {
+    padding: 20px 0;
+}
+
+@media (min-width: 979px) { 
+    body{
+        padding-top: 80px;
+    }
+}
+
+
+

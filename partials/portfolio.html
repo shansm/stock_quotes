@@ -1,0 +1,23 @@
+<div class="row-fluid chartSelector">
+  <div class="span12 text-center">
+    <button class="btn btn-primary" ng-click="refreshPrices()">Refresh</button>
+  </div>
+</div>
+<table class="table table-bordered stockTable table-striped">
+	<thead>
+    <tr>
+      <th>Company</th>
+      <th>Symbol</th>
+      <th>Price</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+	<tbody>	
+    <tr id="stockRow{{$index}}" ng-repeat="stock in stocksRetrieved" class="stockRow">
+      <td>{{ stock.company_name }}</td>
+      <td>{{ stock.name }}</td>
+      <td ng-show="arrayCheck"><img class="spinner" src="img/ajaxSpinner.gif"><span class="bold">{{ allPrices[$index].LastTradePriceOnly }}</span> <span ng-show="allPrices[$index].LastTradePriceOnly" ng-class="{gainColor: allPrices[$index].Change > 0, lossColor: allPrices[$index].Change < 0}">{{ allPrices[$index].Change }} ({{ allPrices[$index].ChangeinPercent }})</span></td>
+      <td ng-show="!arrayCheck"><img class="spinner" src="img/ajaxSpinner.gif"><span class="bold">{{ allPrices.LastTradePriceOnly }}</span> <span ng-show="allPrices.LastTradePriceOnly" ng-class="{gainColor: allPrices.Change > 0, lossColor: allPrices.Change < 0}">{{ allPrices.Change}} ({{ allPrices.ChangeinPercent }})</span></td>
+      <td ng-click="deleteItem(stock.id, $index)"><img class="deleteIcon" src="img/delete.png"></td>
+    </tr>
+
