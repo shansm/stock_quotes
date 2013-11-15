@@ -5,8 +5,8 @@ stocks.controller('homescreen', ['$scope', '$http', 'stockData', 'database', fun
     });
     $scope.typeahead = function(query, callback) {
         $http.jsonp('http://autoc.finance.yahoo.com/autoc?query=' + query + '&callback=YAHOO.Finance.SymbolSuggest.ssCallback');
-        $scope.arrayss = symbolsArray;
-        callback($scope.arrayss);
+        $scope.arraySS = stockQuotes.symbolsArray;
+        callback($scope.arraySS);
     }
     $scope.timeFrame = [{
         name: '1 Day',
@@ -110,9 +110,6 @@ stocks.controller('portfolio', ['$scope', '$http', 'stockData', 'database', func
         $scope.fetchPrices($scope.price);
     }
 }]);
-
-
-
 stocks.controller('eula', ['$scope', '$http', function portfolio($scope, $http) {
   //nothing needed yet
 }]);

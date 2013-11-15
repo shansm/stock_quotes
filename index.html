@@ -40,32 +40,21 @@
         </div>
       </div>
     </div>
-
-    
-
     <div class="container">
-      <!-- Example row of columns -->
-      <div class="row-fluid">
-        
-        <div ng-view class="span12"></div>
-        
+      <div class="row-fluid">      
+        <div ng-view class="span12"></div>      
         </div>
-      <!--<hr>
-
-      <footer class="text-center">
-        <a href="#/eula">EULA</a>
-      </footer>-->
     </div> <!-- /container -->        
     <script>
-    //global bar, need to move into module pattern.
-    var symbolsArray = [];
+    var stockQuotes = stockQuotes || {};
+        stockQuotes.symbolsArray = []; 
     var YAHOO = {
         Finance: {
             SymbolSuggest: {
                 ssCallback: function(data) {
-                    symbolsArray.length = 0;
+                    stockQuotes.symbolsArray.length = 0;
                     $.map(data.ResultSet.Result, function(e, i) {
-                        symbolsArray.push(e.symbol + " - " + e.name);
+                        stockQuotes.symbolsArray.push(e.symbol + " - " + e.name);
                     });
                 }
             },
@@ -88,7 +77,7 @@
         <script>
 
       $(document).ready(function(){
-        $('.nav-item').on( "click", function() {
+        $('.nav-item').on("click", function() {
             $('.nav-collapse').collapse('toggle');
             });
       });
