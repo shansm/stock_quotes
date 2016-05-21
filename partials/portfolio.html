@@ -4,7 +4,7 @@
   </div>
 </div>
 <table class="table table-bordered stockTable table-striped">
-	<thead>
+  <thead>
     <tr>
       <th>Company</th>
       <th>Symbol</th>
@@ -12,12 +12,25 @@
       <th>&nbsp;</th>
     </tr>
   </thead>
-	<tbody>	
-    <tr id="stockRow{{$index}}" ng-repeat="stock in stocksRetrieved" class="stockRow">
+  <tbody>
+    <tr class="stockRow" id="stockRow{{$index}}" ng-repeat=
+    "stock in stocksRetrieved">
       <td>{{ stock.company_name }}</td>
       <td>{{ stock.name }}</td>
-      <td ng-show="arrayCheck"><img class="spinner" src="img/ajaxSpinner.gif"><span class="bold">{{ allPrices[$index].LastTradePriceOnly }}</span> <span ng-show="allPrices[$index].LastTradePriceOnly" ng-class="{gainColor: allPrices[$index].Change > 0, lossColor: allPrices[$index].Change < 0}">{{ allPrices[$index].Change }} ({{ allPrices[$index].ChangeinPercent }})</span></td>
-      <td ng-show="!arrayCheck"><img class="spinner" src="img/ajaxSpinner.gif"><span class="bold">{{ allPrices.LastTradePriceOnly }}</span> <span ng-show="allPrices.LastTradePriceOnly" ng-class="{gainColor: allPrices.Change > 0, lossColor: allPrices.Change < 0}">{{ allPrices.Change}} ({{ allPrices.ChangeinPercent }})</span></td>
-      <td ng-click="deleteItem(stock.id, $index)"><img class="deleteIcon" src="img/delete.png"></td>
+      <td ng-show="arrayCheck"><img class="spinner" src=
+      "img/ajaxSpinner.gif"><span class="bold">{{
+      allPrices[$index].LastTradePriceOnly }}</span> <span ng-class=
+      "{gainColor: allPrices[$index].Change &gt; 0, lossColor: allPrices[$index].Change &lt; 0}"
+      ng-show="allPrices[$index].LastTradePriceOnly">{{ allPrices[$index].Change
+      }} ({{ allPrices[$index].ChangeinPercent }})</span></td>
+      <td ng-show="!arrayCheck"><img class="spinner" src=
+      "img/ajaxSpinner.gif"><span class="bold">{{ allPrices.LastTradePriceOnly
+      }}</span> <span ng-class=
+      "{gainColor: allPrices.Change &gt; 0, lossColor: allPrices.Change &lt; 0}"
+      ng-show="allPrices.LastTradePriceOnly">{{ allPrices.Change}} ({{
+      allPrices.ChangeinPercent }})</span></td>
+      <td ng-click="deleteItem(stock.id, $index)"><img class="deleteIcon" src=
+      "img/delete.png"></td>
     </tr>
-
+  </tbody>
+</table>

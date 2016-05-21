@@ -1,7 +1,5 @@
 'use strict';
-
- var stocks = angular.module('stocks', ['$strap.directives', 'ngResource', 'ngRoute']);
-
+var stocks = angular.module('stocks', ['$strap.directives', 'ngResource', 'ngRoute']);
 stocks.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/home', {templateUrl: 'partials/home.html', controller: 'homescreen'});
   $routeProvider.when('/portfolio', {templateUrl: 'partials/portfolio.html', controller: 'portfolio'});
